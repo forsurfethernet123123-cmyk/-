@@ -15,8 +15,12 @@ services:
         value: 10000
       - key: DB_PATH
         value: /data/shokerefund.db
-      - key: PUBLIC_BASE_URL
-        sync: false
+      - key: TEST_MODE
+        value: false
+      - key: SKIP_SUBSCRIPTION_CHECK
+        value: false
+      - key: SEND_STARTUP_MESSAGE
+        value: true
       - key: BOT_TOKEN
         sync: false
       - key: ADMIN_CHAT_ID
@@ -25,13 +29,9 @@ services:
         sync: false
       - key: ADMIN_IDS_JSON
         sync: false
-      - key: TEST_MODE
-        value: false
-      - key: SKIP_SUBSCRIPTION_CHECK
-        value: false
-      - key: SEND_STARTUP_MESSAGE
-        value: true
-    disks:
-      - name: shokerefund-data
-        mountPath: /data
-        sizeGB: 1
+      - key: PUBLIC_BASE_URL
+        sync: false
+    disk:
+      name: shokerefund-data
+      mountPath: /data
+      sizeGB: 1
